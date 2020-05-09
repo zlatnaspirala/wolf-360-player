@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>three.js visual js</title>
+    <title>wulf 360 player</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <style>
@@ -20,13 +20,15 @@
       <video id="monitor" autoplay width="160" height="120" style=""></video>
       <canvas id="videoImage" width="160" height="120" style=" float:left;"></canvas>
       <video
-        mute
+        muted
         autoplay
         preload="true"
         controls
         id="VIDEO360"
         tabindex="-1"
-        style="width: 640px; height: 480px; left: 0px; top: 15px; transform: none;"
+        style="width: 640px; height: 480px;
+               left: 0px; top: 15px;
+               transform: none;"
         src="res/video360/MegaCoaster.mp4"
       ></video>
     </div>
@@ -35,31 +37,56 @@
     <button
       onclick="ROTATE_Y ()"
       id="VIDEO360_ROTATE_Y"
-      style="padding:0; opacity: 0.8;display:block;background-repeat:round;background-image:url('res/video360/rotate.png');width:50px;height:50px"
+      style="background: transparent;
+             padding:0; opacity: 0.8;
+             display: block;background-repeat:round;
+             background-image:url('res/video360/rotate.png');
+             width:50px;height:50px;
+             border: none;"
       title="Video options PLAY"
     ></button>
     <button
       onclick="PLAY()"
       id="VIDEO360_PLAY"
-      style="padding:0; opacity: 0.8;display:none;background-repeat: no-repeat;background-image:url('res/video360/play.png');width:50px;height:50px"
+      style="background: transparent;
+             padding:0; opacity: 0.8;
+             display:none;background-repeat: no-repeat;
+             background-image:url('res/video360/play.png');
+             width:50px;height:50px;
+             border: none;"
       title="Video options PLAY"
     ></button>
     <button
       onclick="PAUSE()"
       id="VIDEO360_PAUSE"
-      style="padding:0;opacity: 0.8;display:block;background-repeat: no-repeat;background-image:url('res/video360/pause.png');width:50px;height:50px"
+      style="background: transparent;
+             padding: 0;opacity: 0.8;
+             display: block;background-repeat: no-repeat;
+             background-image:url('res/video360/pause.png');
+             width:50px;height:50px;
+             border: none;"
       title="Video options PAUSE"
     ></button>
     <button
       onclick="SOUND_ON()"
       id="VIDEO360_SOUND_ON"
-      style="padding:0;opacity: 0.8;display:block;background-repeat: no-repeat;background-image:url('res/video360/soundon.png');width:50px;height:50px"
+      style="background: transparent;
+             padding: 0;opacity: 0.8;
+             display: block;background-repeat: no-repeat;
+             background-image:url('res/video360/soundon.png');
+             width:50px;height:50px;
+             border: none;"
       title="Video options PLAY"
     ></button>
     <button
       onclick="SOUND_OFF()"
       id="VIDEO360_SOUND_OFF"
-      style="padding:0;opacity: 0.8;display:none;background-repeat: no-repeat;background-image:url('res/video360/soundoff.png');width:50px;height:50px"
+      style="background: transparent;
+             padding:0;opacity: 0.8;
+             display:none;background-repeat: no-repeat;
+             background-image:url('res/video360/soundoff.png');
+             width:50px;height:50px;
+             border: none;"
       title="Video options PLAY"
     ></button>
     </div>
@@ -72,8 +99,6 @@
     <script src="js/onWindowResize.js"></script>
     <script src="js/render.js"></script>
     <script src="js/camera.js"></script>
-    <script src="lib/addShape.js"></script>
-    <script src="js/grid.js"></script>
     <script src="lib/text.js"></script>
     <script src="lib/GPUParticleSystem.js" charset="utf-8"></script>
 

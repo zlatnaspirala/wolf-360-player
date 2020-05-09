@@ -21,18 +21,5 @@ var PROGRAM = {
   AUTO_UPDATE: [],
   ANTIALIAS: true,
   SKY: false,
-  LIGHTS: true,
-  DDSLoader: true,
-  OBJLoader: true,
-  MTLLoader: true,
-  MD2Loader: true,
-  ColladaLoader: false,
-  MD2Character: true,
-  FBXLoader: false,
-  GROUND: true,
-  RAYCAST: true,
-  PARTICLE_ENGINE: false,
-  MATERIALS: true,
-  STREAM_TEXTURE: true,
-  PANORAMA_TEXTURES: true
+  LIGHTS: true
 };

@@ -1,5 +1,3 @@
-var INIT_SCENE_ENABLED = true;
-
 /*
  * @method CAMERA_INIT Create three.js camera object
  * @param position Start up position
