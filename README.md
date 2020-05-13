@@ -36,6 +36,7 @@ It is very descriptively with one basic programming role `single responsibility`
 |   |   └──came.js
 |   |   └──camera.js
 |   ├── lib/ [This is only active scripts in the project]
+             [loadScript.js is important ofr loading scripts]
 |   |    └──/threejs/dat.gui.min.js
 |   |    └──/threejs/GeometryUtils.js
 |   |    └──/math.js
@@ -52,7 +53,7 @@ It is very descriptively with one basic programming role `single responsibility`
 |   ├── index.html
 |   ├── manifest.web [to improve PWA]
 
-  Credits :
+Credits:
 
-    Video used for example:
-    https://vimeo.com/214401712
+  Video used just for presentation demo:
+  https://vimeo.com/214401712
