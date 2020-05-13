@@ -9,13 +9,14 @@ var APPLICATION = {
   TYPE: "client app",
   VERSION: "0.1",
   STATUS: "develop",
-  DEVELOPERS: ["Nikola Lukic zlatnaspirala@gmail.com"],
-  PROGRAM: {
-    NAME: "Three.js used ,based on visula-js",
-    GRID: false,
-    AUTO_UPDATE: [],
-    ANTIALIAS: true,
-    SKY: false,
-    LIGHTS: true
-  }
+  DEVELOPERS: ["Nikola Lukic zlatnaspirala@gmail.com"]
+};
+
+var PROGRAM = {
+  NAME: "Three.js used ,based on visula-js",
+  GRID: false,
+  AUTO_UPDATE: [],
+  ANTIALIAS: true,
+  SKY: false,
+  LIGHTS: true
 };
