@@ -6,11 +6,10 @@
 
 var APPLICATION = {
   NAME: "WOLF-360-PLAYER",
-  TYPE: "client",
+  TYPE: "client app",
   VERSION: "0.1",
   STATUS: "develop",
-  DEVELOPERS: ["Nikola Lukic Zlatnaspirala@gmail.com"],
-  PROGRAM: {}
+  DEVELOPERS: ["Nikola Lukic zlatnaspirala@gmail.com"]
 };
 
 APPLICATION.PROGRAM = PROGRAM;

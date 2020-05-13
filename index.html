@@ -4,21 +4,12 @@
     <title>wulf 360 player</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <style>
-      body {
-        font-family: Monospace;
-        background-color: #000;
-        color: #fff;
-        margin: 0px;
-        overflow: hidden;
-      }
-    </style>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <!--NORMAL WEBCAM TEXTURES IN 3d -->
     <div style="display:flex;" id="HOLDER_STREAMS">
       <video id="monitor" autoplay width="160" height="120" style=""></video>
-      <canvas id="videoImage" width="160" height="120" style=" float:left;"></canvas>
+      <canvas id="videoImage" width="160" height="120" style=""></canvas>
       <video
         muted
         autoplay
@@ -26,69 +17,45 @@
         controls
         id="VIDEO360"
         tabindex="-1"
-        style="width: 640px; height: 480px;
-               left: 0px; top: 15px;
+        style="position:fixed;
+               /* width: 640px; height: 480px; */
+               left: 0px; top: -1950px;
                transform: none;"
-        src="res/video360/MegaCoaster.mp4"
+        src="res/video360/video/Ayutthaya-EasyTripodPaint_Free_Download_HD.mp4"
       ></video>
     </div>
 
     <div style="display:flex;">
-    <button
-      onclick="ROTATE_Y ()"
-      id="VIDEO360_ROTATE_Y"
-      style="background: transparent;
-             padding:0; opacity: 0.8;
-             display: block;background-repeat:round;
-             background-image:url('res/video360/rotate.png');
-             width:50px;height:50px;
-             border: none;"
-      title="Video options PLAY"
-    ></button>
-    <button
-      onclick="PLAY()"
-      id="VIDEO360_PLAY"
-      style="background: transparent;
-             padding:0; opacity: 0.8;
-             display:none;background-repeat: no-repeat;
-             background-image:url('res/video360/play.png');
-             width:50px;height:50px;
-             border: none;"
-      title="Video options PLAY"
-    ></button>
-    <button
-      onclick="PAUSE()"
-      id="VIDEO360_PAUSE"
-      style="background: transparent;
-             padding: 0;opacity: 0.8;
-             display: block;background-repeat: no-repeat;
-             background-image:url('res/video360/pause.png');
-             width:50px;height:50px;
-             border: none;"
-      title="Video options PAUSE"
-    ></button>
-    <button
-      onclick="SOUND_ON()"
-      id="VIDEO360_SOUND_ON"
-      style="background: transparent;
-             padding: 0;opacity: 0.8;
-             display: block;background-repeat: no-repeat;
-             background-image:url('res/video360/soundon.png');
-             width:50px;height:50px;
-             border: none;"
-      title="Video options PLAY"
-    ></button>
-    <button
-      onclick="SOUND_OFF()"
-      id="VIDEO360_SOUND_OFF"
-      style="background: transparent;
-             padding:0;opacity: 0.8;
-             display:none;background-repeat: no-repeat;
-             background-image:url('res/video360/soundoff.png');
-             width:50px;height:50px;
-             border: none;"
-      title="Video options PLAY"
-    ></button>
+      <button class="btn buttonRotate"
+        onclick="ROTATE_Y ()"
+        id="VIDEO360_ROTATE_Y"
+        style=""
+        title="Video options Rotate scene."
+      ></button>
+      <button class="btn buttonPlay"
+        onclick="PLAY()"
+        id="VIDEO360_PLAY"
+        title="Video options Play."
+      ></button>
+      <button class="btn buttonPause"
+        onclick="PAUSE()"
+        id="VIDEO360_PAUSE"
+        style=""
+        title="Video options PAUSE"
+      ></button>
+      <button class="btn buttonSoundOn"
+        onclick="SOUND_ON()"
+        id="VIDEO360_SOUND_ON"
+        title="Video options Sound On."
+      ></button>
+      <button class="btn buttonSoundOff"
+        onclick="SOUND_OFF()"
+        id="VIDEO360_SOUND_OFF"
+        title="Video options Sound Off."
+      ></button>
+      <p id="wolf-player-title">
+         Playing Ayutthaya-EasyTripodPaint_Free_Download.mp4
+      </p>
     </div>
     <script src="lib/threejs/three.min.js"></script>
     <script src="lib/threejs/Detector.js"></script>
@@ -126,7 +93,7 @@
       var INTERSECTED;
       var scene = new THREE.Scene();
 
-      renderer = new THREE.WebGLRenderer({ antialias: PROGRAM.ANTIALIAS });
+      renderer = new THREE.WebGLRenderer({ antialias: true });
 
       window.onload = function() {
         init();

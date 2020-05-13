@@ -47,3 +47,13 @@ function ROTATE_Y() {
     PROGRAM.AUTO_UPDATE.push(ROTATE_BY_Y);
   }
 }
+
+function playOrPause() {
+  if (VIDEO.paused == true) {
+    PLAY();
+  } else {
+    PAUSE();
+  }
+}
+
+// document.getElementsByTagName("canvas")[2].addEventListener("click", playOrPause, false);
