@@ -10,7 +10,9 @@ body {
 }
 
 p {
-  padding: 5px 5px;
+  margin: 0;
+  margin-top: 1px;
+  padding: 1px 1px;
 }
 
 .btn {
@@ -28,6 +30,7 @@ p {
 
 
 .buttonPlay {
+  display:none;
   background-image:url('../res/video360/images/play.png');
 }
 
@@ -47,4 +50,11 @@ p {
 .btn:hover {
   border: 2px solid blue;
   color: white;
+}
+
+#wolf-player-title {
+  align-items: center;
+  width: 84%;
+  text-align: center;
+  align-self: center;
 }

@@ -15,7 +15,7 @@
     <noscript>
       You need to allow JavaScript in you browser.
     </noscript>
-    <div style="display:flex;" id="HOLDER_STREAMS">
+    <div style="display:none;" id="HOLDER_STREAMS">
       <video id="monitor" autoplay width="160" height="120" style=""></video>
       <canvas id="videoImage" width="160" height="120" style=""></canvas>
       <video
@@ -26,7 +26,7 @@
         id="VIDEO360"
         tabindex="-1"
         style="position:absolute;
-               left: 0px; top: -2250px;"
+               left: 0px; top: -3250px;"
         src="res/video360/video/Ayutthaya-EasyTripodPaint_Free_Download_HD.mp4"
       ></video>
     </div>
@@ -60,7 +60,7 @@
         title="Video options Sound Off."
       ></button>
       <p id="wolf-player-title">
-         Playing Ayutthaya-EasyTripodPaint_Free_Download.mp4
+         Loading Ayutthaya-EasyTripodPaint mp4
       </p>
     </div>
     <script src="lib/threejs/three.min.js" ></script>
@@ -132,8 +132,9 @@
         controls.maxPolarAngle = Math.PI;
         controls.enableZoom = true;
         controls.enablePan = false;
-        controls.minZoom = 500;
-        controls.maxZoom = 4000;
+        controls.minZoom = 5;
+        controls.maxZoom = 50;
+        controls.maxDistance = 2000;
         controls.autoRotate = false;
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -144,7 +145,7 @@
         window.addEventListener("resize", onWindowResize, false);
 
         setTimeout(function(){
-          INCLUDE.SCRIPT("application/wolf360player.js");
+          INCLUDE.SCRIPT("js/wolf360player.js");
         }, 2000)
 
       }
