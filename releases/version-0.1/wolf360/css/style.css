@@ -1,0 +1,60 @@
+
+
+body {
+  font-family: Monospace;
+  background-color: #000;
+  color: #fff;
+  font-size: large;
+  margin: 0px;
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+  margin-top: 1px;
+  padding: 1px 1px;
+}
+
+.btn {
+  color: black;
+  border: none;
+  background-color: transparent;
+  padding:0; opacity: 0.8;
+  display: block;background-repeat:round;
+  width:50px;height:50px;
+}
+
+.buttonRotate {
+  background-image:url('../res/video360/images/rotate.png');
+}
+
+
+.buttonPlay {
+  display:none;
+  background-image:url('../res/video360/images/play.png');
+}
+
+.buttonSoundOff {
+  display: none;
+  background-image:url('../res/video360/images/soundoff.png');
+}
+
+.buttonSoundOn {
+  background-image:url('../res/video360/images/soundon.png');
+}
+
+.buttonPause {
+  background-image:url('../res/video360/images/pause.png');
+}
+
+.btn:hover {
+  border: 2px solid blue;
+  color: white;
+}
+
+#wolf-player-title {
+  align-items: center;
+  width: 84%;
+  text-align: center;
+  align-self: center;
+}

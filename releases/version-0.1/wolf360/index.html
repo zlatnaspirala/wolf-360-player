@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wulf 360 player</title>
+    <meta charset="utf-8" />
+    <meta name="Description" content="Created by Nikola Lukic application based on three.js & cannon.js">
+    <meta name="robots" content="all" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <noscript>
+      You need to allow JavaScript in you browser.
+    </noscript>
+    <div style="display:none;" id="HOLDER_STREAMS">
+      <video id="monitor" autoplay width="160" height="120" style=""></video>
+      <canvas id="videoImage" width="160" height="120" style=""></canvas>
+      <video
+        muted
+        autoplay
+        preload="true"
+        controls
+        id="VIDEO360"
+        tabindex="-1"
+        style="position:absolute;
+               left: 0px; top: -3250px;"
+        src="res/video360/video/Ayutthaya-EasyTripodPaint_Free_Download_HD.mp4"
+      ></video>
+    </div>
+
+    <div style="display:flex;">
+      <button class="btn buttonRotate"
+        onclick="ROTATE_Y ()"
+        id="VIDEO360_ROTATE_Y"
+        style=""
+        title="Video options Rotate scene."
+      ></button>
+      <button class="btn buttonPlay"
+        onclick="PLAY()"
+        id="VIDEO360_PLAY"
+        title="Video options Play."
+      ></button>
+      <button class="btn buttonPause"
+        onclick="PAUSE()"
+        id="VIDEO360_PAUSE"
+        style=""
+        title="Video options PAUSE"
+      ></button>
+      <button class="btn buttonSoundOn"
+        onclick="SOUND_ON()"
+        id="VIDEO360_SOUND_ON"
+        title="Video options Sound On."
+      ></button>
+      <button class="btn buttonSoundOff"
+        onclick="SOUND_OFF()"
+        id="VIDEO360_SOUND_OFF"
+        title="Video options Sound Off."
+      ></button>
+      <p id="wolf-player-title">
+         Loading Ayutthaya-EasyTripodPaint mp4
+      </p>
+    </div>
+    <script src="lib/threejs/three.min.js" ></script>
+    <script src="lib/threejs/Detector.js" defer></script>
+    <script src="manifest/manifest.js" defer></script>
+    <script src="lib/starter.js" defer></script>
+    <script src="lib/loadScript.js" defer></script>
+    <script src="js/import.js" defer></script>
+    <script src="js/onWindowResize.js" defer></script>
+    <script src="js/render.js" defer></script>
+    <script src="js/camera.js" defer></script>
+    <script src="lib/text.js" defer></script>
+    <script src="lib/GPUParticleSystem.js" defer charset="utf-8"></script>
+
+    <script defer>
+
+      function RESIZE_WINDOW() {
+
+        SYS.DOM.E("VIDEO360_PLAY").style.left = window.innerWidth / 2 - 26 + "px";
+        SYS.DOM.E("VIDEO360_PAUSE").style.left = window.innerWidth / 2 - 26 + "px";
+        SYS.DOM.E("VIDEO360_SOUND_ON").style.left = window.innerWidth / 2 + 26 + "px";
+        SYS.DOM.E("VIDEO360_SOUND_OFF").style.left = window.innerWidth / 2 + 26 + "px";
+        SYS.DOM.E("VIDEO360_ROTATE_Y").style.left = window.innerWidth - 60 + "px";
+
+      }
+
+      window.onresize = RESIZE_WINDOW;
+
+      /**
+       * @ globals variables
+       */
+      // SUPER GLOBALS VARIABLE
+      var container, camera, controls;
+      var clock = new THREE.Clock(true);
+      var mouse = new THREE.Vector2();
+      var INTERSECTED;
+      var scene = new THREE.Scene();
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+
+      window.onload = function() {
+        init();
+        render();
+      };
+
+      function init() {
+
+        var position = { x: 0, y: 455, z: -150 };
+
+        CAMERA_INIT(position);
+
+        directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(0, 0, 1).normalize();
+        directionalLight.position.set(0, 400, 0);
+        directionalLight.castShadow = true;
+
+        directionalLight.shadow.mapSize.width = 1024;
+        directionalLight.shadow.mapSize.height = 512;
+        directionalLight.shadow.camera.near = 100;
+        directionalLight.shadow.camera.far = 1200;
+        directionalLight.shadow.camera.top = 350;
+        directionalLight.shadow.camera.bottom = -350;
+        directionalLight.shadow.camera.right = 1000;
+        directionalLight.shadow.camera.left = -1000;
+        scene.add(directionalLight);
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.addEventListener("change", render);
+        controls.maxPolarAngle = Math.PI;
+        controls.enableZoom = true;
+        controls.enablePan = false;
+        controls.minZoom = 5;
+        controls.maxZoom = 50;
+        controls.maxDistance = 2000;
+        controls.autoRotate = false;
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // initSky(false);
+        animate();
+        window.addEventListener("resize", onWindowResize, false);
+
+        setTimeout(function(){
+          INCLUDE.SCRIPT("js/wolf360player.js");
+        }, 2000)
+
+      }
+
+    </script>
+  </body>
+</html>
